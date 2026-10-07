@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trinkgeld-Rechner — UI-Übersicht</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <main class="card" data-od-id="mockup-overview">
+      <header class="page-header" data-od-id="page-header">
+        <h1 data-od-id="page-title">Trinkgeld-Rechner</h1>
+        <p class="subtitle" data-od-id="page-subtitle">Klickbare UI-Ansichten zur Durchsicht</p>
+      </header>
+
+      <ul class="screen-list" data-od-id="screen-list">
+        <li>
+          <a class="screen-link" href="calculator.html" data-od-id="screen-link-neutral">
+            <span class="screen-title">Neutral</span>
+            <span class="screen-desc">Leeres Formular vor der ersten Eingabe – keine Fehler, keine Ergebnisse.</span>
+          </a>
+        </li>
+        <li>
+          <a class="screen-link" href="calculator-result.html" data-od-id="screen-link-result">
+            <span class="screen-title">Gültiges Ergebnis</span>
+            <span class="screen-desc">Live berechnete Werte mit hervorgehobenem Gesamtbetrag.</span>
+          </a>
+        </li>
+        <li>
+          <a class="screen-link" href="calculator-error.html" data-od-id="screen-link-error">
+            <span class="screen-title">Fehlerzustand</span>
+            <span class="screen-desc">Ungültige Eingaben mit Feld- und Sammelfehler statt Ergebnis.</span>
+          </a>
+        </li>
+      </ul>
+    </main>
+  </div>
+</body>
+</html>

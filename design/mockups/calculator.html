@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trinkgeld-Rechner — Neutral</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <main class="card" data-od-id="tip-calculator">
+      <header class="page-header" data-od-id="page-header">
+        <h1 data-od-id="page-title">Trinkgeld-Rechner</h1>
+        <p class="subtitle" data-od-id="page-subtitle">Betrag, Trinkgeld und Personenzahl eingeben – die Ergebnisse erscheinen sofort.</p>
+      </header>
+
+      <form novalidate data-od-id="tip-form">
+        <div class="field" data-od-id="field-amount">
+          <label for="amount">Betrag</label>
+          <div class="input-wrap has-unit">
+            <input class="input" id="amount" name="amount" type="text" inputmode="decimal" required autocomplete="off" placeholder="0,00" data-od-id="input-amount">
+            <span class="unit-hint" aria-hidden="true">€</span>
+          </div>
+        </div>
+
+        <div class="field" data-od-id="field-percent">
+          <label for="percent">Trinkgeld-Prozent</label>
+          <div class="input-wrap has-unit">
+            <input class="input" id="percent" name="percent" type="text" inputmode="decimal" required autocomplete="off" placeholder="10" data-od-id="input-percent">
+            <span class="unit-hint" aria-hidden="true">%</span>
+          </div>
+        </div>
+
+        <div class="field" data-od-id="field-people">
+          <label for="people">Personenzahl</label>
+          <div class="input-wrap">
+            <input class="input" id="people" name="people" type="text" inputmode="numeric" required autocomplete="off" placeholder="1" data-od-id="input-people">
+          </div>
+        </div>
+
+        <section class="result-panel" aria-live="polite" aria-atomic="true" data-od-id="result-panel">
+          <div class="result-row" data-od-id="result-tip">
+            <span class="result-label">Trinkgeld</span>
+            <span class="result-value">—</span>
+          </div>
+          <div class="result-row" data-od-id="result-total">
+            <span class="result-label">Gesamtbetrag</span>
+            <span class="result-value is-accent">—</span>
+          </div>
+          <div class="result-row" data-od-id="result-per-person">
+            <span class="result-label">Betrag pro Person</span>
+            <span class="result-value">—</span>
+          </div>
+        </section>
+      </form>
+    </main>
+
+    <nav class="review-nav" aria-label="Mockup-Ansichten">
+      <a href="index.html">Übersicht</a>
+      <a href="calculator.html" class="active" aria-current="page">Neutral</a>
+      <a href="calculator-result.html">Gültiges Ergebnis</a>
+      <a href="calculator-error.html">Fehlerzustand</a>
+    </nav>
+  </div>
+</body>
+</html>

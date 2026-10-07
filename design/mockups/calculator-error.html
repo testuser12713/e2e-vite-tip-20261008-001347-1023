@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trinkgeld-Rechner — Fehlerzustand</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <main class="card" data-od-id="tip-calculator">
+      <header class="page-header" data-od-id="page-header">
+        <h1 data-od-id="page-title">Trinkgeld-Rechner</h1>
+        <p class="subtitle" data-od-id="page-subtitle">Betrag, Trinkgeld und Personenzahl eingeben – die Ergebnisse erscheinen sofort.</p>
+      </header>
+
+      <form novalidate data-od-id="tip-form">
+        <div class="field" data-od-id="field-amount">
+          <label for="amount">Betrag</label>
+          <div class="input-wrap has-unit">
+            <input class="input is-error" id="amount" name="amount" type="text" inputmode="decimal" required autocomplete="off" placeholder="0,00" aria-invalid="true" aria-describedby="amount-error" data-od-id="input-amount">
+            <span class="unit-hint" aria-hidden="true">€</span>
+          </div>
+          <p class="error-text" id="amount-error">
+            <svg class="glyph" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <circle cx="8" cy="8" r="7" fill="#B42318"></circle>
+              <path d="M8 4.5v3.8" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"></path>
+              <circle cx="8" cy="11.2" r="0.9" fill="#FFFFFF"></circle>
+            </svg>
+            Bitte gib einen Betrag ein.
+          </p>
+        </div>
+
+        <div class="field" data-od-id="field-percent">
+          <label for="percent">Trinkgeld-Prozent</label>
+          <div class="input-wrap has-unit">
+            <input class="input is-error" id="percent" name="percent" type="text" inputmode="decimal" required autocomplete="off" value="120" aria-invalid="true" aria-describedby="percent-error" data-od-id="input-percent">
+            <span class="unit-hint" aria-hidden="true">%</span>
+          </div>
+          <p class="error-text" id="percent-error">
+            <svg class="glyph" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <circle cx="8" cy="8" r="7" fill="#B42318"></circle>
+              <path d="M8 4.5v3.8" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"></path>
+              <circle cx="8" cy="11.2" r="0.9" fill="#FFFFFF"></circle>
+            </svg>
+            Der Wert muss zwischen 0 und 100 liegen.
+          </p>
+        </div>
+
+        <div class="field" data-od-id="field-people">
+          <label for="people">Personenzahl</label>
+          <div class="input-wrap">
+            <input class="input is-error" id="people" name="people" type="text" inputmode="numeric" required autocomplete="off" value="0" aria-invalid="true" aria-describedby="people-error" data-od-id="input-people">
+          </div>
+          <p class="error-text" id="people-error">
+            <svg class="glyph" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <circle cx="8" cy="8" r="7" fill="#B42318"></circle>
+              <path d="M8 4.5v3.8" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"></path>
+              <circle cx="8" cy="11.2" r="0.9" fill="#FFFFFF"></circle>
+            </svg>
+            Die Personenzahl muss mindestens 1 sein.
+          </p>
+        </div>
+
+        <div class="error-summary" role="alert" data-od-id="error-summary">
+          <svg class="glyph" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8" r="7" fill="#B42318"></circle>
+            <path d="M8 4.5v3.8" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"></path>
+            <circle cx="8" cy="11.2" r="0.9" fill="#FFFFFF"></circle>
+          </svg>
+          <span>Einige Eingaben sind ungültig. Bitte prüfe die markierten Felder.</span>
+        </div>
+      </form>
+    </main>
+
+    <nav class="review-nav" aria-label="Mockup-Ansichten">
+      <a href="index.html">Übersicht</a>
+      <a href="calculator.html">Neutral</a>
+      <a href="calculator-result.html">Gültiges Ergebnis</a>
+      <a href="calculator-error.html" class="active" aria-current="page">Fehlerzustand</a>
+    </nav>
+  </div>
+</body>
+</html>

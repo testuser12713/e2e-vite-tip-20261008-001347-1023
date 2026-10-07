@@ -1,0 +1,343 @@
+/* ============================================================
+   Trinkgeld-Rechner — shared design-system styles
+   Source of truth: Design — Project Identity (authoritative).
+   Tokens below are transcribed verbatim; do not re-derive.
+   ============================================================ */
+
+:root {
+  /* Colors */
+  --color-bg: #F5F7F8;
+  --color-surface: #FFFFFF;
+  --color-surface-subtle: #F1F5F7;
+  --color-fg: #0F1B1A;
+  --color-fg-muted: #5C6B70;
+  --color-accent: #0E7C6B;
+  --color-accent-hover: #0A6355;
+  --color-accent-active: #084F45;
+  --color-accent-subtle: #E6F4F1;
+  --color-border: #E3E8EA;
+  --color-border-strong: #CBD5D6;
+  --color-focus-ring: #0E7C6B33;
+  --color-danger: #B42318;
+  --color-danger-subtle: #FEF3F2;
+  --color-danger-border: #F7D5D2;
+  --color-disabled-bg: #EDF1F2;
+  --color-disabled-fg: #9AA6A9;
+
+  /* Spacing scale */
+  --space-0: 4px;
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+
+  /* Border radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  /* Typography */
+  --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-numeric: "Inter", ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-fg);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Page layout: single column, centred on tall viewports, top-aligned on short */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+@media (max-width: 640px) {
+  .page { padding: 24px 16px; }
+}
+
+@media (max-height: 720px) {
+  .page { justify-content: flex-start; }
+}
+
+/* Card — the single page container */
+.card {
+  width: 100%;
+  max-width: 480px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: 0 1px 2px rgba(15, 27, 26, 0.04), 0 8px 24px rgba(15, 27, 26, 0.05);
+}
+
+@media (max-width: 640px) {
+  .card { padding: 24px; }
+}
+
+/* Page header */
+.page-header { margin-bottom: 24px; }
+
+.page-header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--color-fg);
+}
+
+.page-header .subtitle {
+  margin: 4px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-fg-muted);
+}
+
+/* Field — label + control + error */
+.field { margin-bottom: 16px; }
+
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-fg-muted);
+}
+
+.input-wrap { position: relative; }
+
+.input-wrap.has-unit .input { padding-right: 36px; }
+
+.unit-hint {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  color: var(--color-fg-muted);
+  pointer-events: none;
+}
+
+/* Input — numeric text input */
+.input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-fg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.input::placeholder { color: var(--color-disabled-fg); }
+
+.input:hover { border-color: var(--color-border-strong); }
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
+.input.is-error { border-color: var(--color-danger); }
+
+.input.is-error:focus { box-shadow: 0 0 0 3px #B4231833; }
+
+.input:disabled {
+  background: var(--color-disabled-bg);
+  color: var(--color-disabled-fg);
+}
+
+/* Error text below input */
+.error-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-danger);
+}
+
+.error-text .glyph { flex-shrink: 0; }
+
+/* Result panel */
+.result-panel {
+  margin-top: 24px;
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.result-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.result-row:first-child { padding-top: 0; }
+.result-row:last-child { padding-bottom: 0; }
+.result-row + .result-row { border-top: 1px solid var(--color-border); }
+
+.result-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-fg-muted);
+}
+
+.result-value {
+  font-size: 20px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-fg);
+}
+
+.result-value.is-accent {
+  font-size: 28px;
+  color: var(--color-accent);
+}
+
+@media (max-width: 640px) {
+  .result-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+}
+
+/* Error summary */
+.error-summary {
+  margin-top: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-danger);
+  background: var(--color-danger-subtle);
+  border: 1px solid var(--color-danger-border);
+  border-radius: var(--radius-md);
+}
+
+.error-summary .glyph { flex-shrink: 0; margin-top: 2px; }
+
+/* Buttons — spec'd by the design system; the live calculator does not render
+   one, so no other control may look like a button. */
+.btn-primary {
+  display: inline-block;
+  padding: 12px 24px;
+  min-height: 44px;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #FFFFFF;
+  background: var(--color-accent);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 120ms ease, transform 120ms ease;
+}
+
+.btn-primary:hover { background: var(--color-accent-hover); }
+.btn-primary:active { background: var(--color-accent-active); transform: translateY(1px); }
+.btn-primary:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.btn-primary:disabled { background: var(--color-disabled-bg); color: var(--color-disabled-fg); cursor: not-allowed; opacity: 1; }
+
+.btn-secondary {
+  display: inline-block;
+  padding: 12px 20px;
+  min-height: 44px;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-fg-muted);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.btn-secondary:hover { background: var(--color-surface-subtle); color: var(--color-fg); }
+.btn-secondary:active { background: #E7EDEE; }
+.btn-secondary:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.btn-secondary:disabled { color: var(--color-disabled-fg); border-color: var(--color-disabled-bg); cursor: not-allowed; }
+
+/* Reviewer navigation — mockup chrome, outside the product card */
+.review-nav {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.review-nav a {
+  padding: 6px 12px;
+  font-size: 13px;
+  text-decoration: none;
+  color: var(--color-fg-muted);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+}
+
+.review-nav a:hover { color: var(--color-fg); border-color: var(--color-border-strong); }
+
+.review-nav a.active {
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+  border-color: var(--color-accent);
+}
+
+/* Off-screen live region */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Overview screen list (index.html) */
+.screen-list { list-style: none; margin: 0; padding: 0; }
+.screen-list li + li { border-top: 1px solid var(--color-border); }
+
+.screen-link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 0;
+  text-decoration: none;
+  color: var(--color-fg);
+}
+
+.screen-link .screen-title { font-size: 16px; font-weight: 600; line-height: 1.25; }
+.screen-link .screen-desc { font-size: 14px; line-height: 1.5; color: var(--color-fg-muted); }
+.screen-link:hover .screen-title { color: var(--color-accent); }
